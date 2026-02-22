@@ -15,7 +15,8 @@ export default function SearchBox({update}) {
       `${API_URL}?key=${API_KEY}&q=${city}`
     );
     let jsonResponse = await response.json();
-    console.log(jsonResponse); // ✅ city weather इथे येईल
+    console.log(jsonResponse); // ✅ city weather 
+
   let result = {
   temp: jsonResponse.current.temp_c,
   feelsLike: jsonResponse.current.feelslike_c,
@@ -45,14 +46,14 @@ return result;
 
   return (
     <div className="search-box">
-      <h3>Search weather by cities</h3>
+      
       <form onSubmit={handleSubmit}>
         <TextField
           id="city"
           label="Cities"
           variant="outlined"
           onChange={handleChange}
-
+          name="city"
           value={city}
           required
         />
